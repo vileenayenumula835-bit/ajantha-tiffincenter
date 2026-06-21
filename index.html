@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ajantha Tiffin Center</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Navbar -->
+    <nav>
+        <div class="logo">Ajantha Tiffin Center</div>
+        <div class="cart-icon" onclick="openCartPopup()">
+            🛒 <span id="cartCount">0</span>
+        </div>
+    </nav>
+
+    <!-- Home -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Welcome to Ajantha Tiffin Center</h1>
+            <p>Hot & Fresh Tiffins in Hyderabad</p>
+            <button class="btn" onclick="openMenuPopup()">View Menu</button>
+        </div>
+    </section>
+
+    <!-- MENU POPUP -->
+    <div id="menuPopup" class="popup">
+        <div class="popup-box">
+            <span class="close" onclick="closePopup('menuPopup')">&times;</span>
+            <h2>🍽️ Our Menu</h2>
+            <p>Select items and add them to your cart</p>
+            <div class="menu-grid">
+                <div class="menu-item" data-name="Idly" data-price="30">
+                    <h3>Idly</h3>
+                    <p>₹30</p>
+                    <button class="add-btn">Add to Cart</button>
+                </div>
+                <div class="menu-item" data-name="Dosa" data-price="40">
+                    <h3>Dosa</h3>
+                    <p>₹40</p>
+                    <button class="add-btn">Add to Cart</button>
+                </div>
+                <div class="menu-item" data-name="Tea" data-price="10">
+                    <h3>Tea</h3>
+                    <p>₹10</p>
+                    <button class="add-btn">Add to Cart</button>
+                </div>
+                <div class="menu-item" data-name="Meals" data-price="80">
+                    <h3>Meals</h3>
+                    <p>₹80</p>
+                    <button class="add-btn">Add to Cart</button>
+                </div>
+            </div>
+            <button class="btn" onclick="openCartPopup()">Go to Cart</button>
+        </div>
+    </div>
+
+    <!-- CART POPUP -->
+    <div id="cartPopup" class="popup">
+        <div class="popup-box">
+            <span class="close" onclick="closePopup('cartPopup')">&times;</span>
+            <h2>🛒 Your Cart</h2>
+            <div id="cartItems"></div>
+            <div id="cartSummary" style="display:none;">
+                <h3>Total: ₹<span id="cartTotal">0</span></h3>
+                <button class="btn" onclick="openOrderPopup()">Proceed to Order</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ORDER POPUP -->
+    <div id="orderPopup" class="popup">
+        <div class="popup-box">
+            <span class="close" onclick="closePopup('orderPopup')">&times;</span>
+            <h2>💳 Order Details</h2>
+            <div id="orderItemsList"></div>
+            <h3>Total: ₹<span id="finalTotal">0</span></h3>
+            <form id="orderForm">
+                <input type="text" id="name" placeholder="Your Name" required>
+                <input type="tel" id="phone" placeholder="Phone Number" required>
+                <textarea id="address" placeholder="Delivery Address" rows="2" required></textarea>
+                <select id="payment" required>
+                    <option value="">Select Payment Method</option>
+                    <option value="Cash on Delivery">Cash on Delivery</option>
+                    <option value="UPI">UPI</option>
+                    <option value="Card">Card</option>
+                </select>
+                <button type="submit" class="btn">Place Order</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- RECEIPT POPUP -->
+    <div id="receiptPopup" class="popup">
+        <div class="popup-box">
+            <span class="close" onclick="closePopup('receiptPopup')">&times;</span>
+            <h2>🧾 Order Receipt</h2>
+            <div id="receiptContent">
+                <p><strong>Order ID:</strong> <span id="orderId"></span></p>
+                <p><strong>Date:</strong> <span id="orderDate"></span></p>
+                <p><strong>Name:</strong> <span id="rName"></span></p>
+                <p><strong>Phone:</strong> <span id="rPhone"></span></p>
+                <div id="rItemsList"></div>
+                <h3>Grand Total: ₹<span id="rTotal"></span></h3>
+                <p><strong>Address:</strong> <span id="rAddress"></span></p>
+                <p><strong>Payment:</strong> <span id="rPayment"></span></p>
+            </div>
+            <button class="btn" onclick="openThankYouPopup()">Done</button>
+        </div>
+    </div>
+
+    <!-- THANK YOU POPUP -->
+    <div id="thankyouPopup" class="popup">
+        <div class="popup-box">
+            <h2>🙏 Thank You!</h2>
+            <p>Your order has been placed successfully!</p>
+            <p>Visit Ajantha Tiffin Center again</p>
+            <button class="btn" onclick="closeAllPopups()">Visit Again</button>
+        </div>
+    </div>
+
+    <footer>
+        <p>© 2026 Ajantha Tiffin Center</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
